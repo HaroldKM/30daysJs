@@ -1,0 +1,25 @@
+#!/bin/bash
+
+count_file="$HOME/30daysjs/actualCount.txt"
+
+if [ -e "$count_file" ]; then
+   actualCount=$(cat "$count_file")
+else
+   actualCount=3
+fi
+
+cd ~
+cd 30daysjs
+
+mkdir "day${actualCount}"
+cp index.html "day${actualCount}"
+
+cd  "day${actualCount}" 
+touch exo_1.js
+touch exo_2.js
+touch exo_3.js
+
+((actualCount=actualCount+1))
+echo "$actualCount" > "$count_file"
+
+echo $actualCount
